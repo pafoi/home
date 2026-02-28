@@ -94,3 +94,624 @@
     .nav-links a { color: var(--text-muted); }
 
     .nav-links a.cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(14,138,61,0.35);
+      color: var(--forest);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a.cta:hover {
+      background: rgba(14,138,61,0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #444;
+      margin: 4px 0;
+      border-radius: 999px;
+    }
+
+    /* Hero strip */
+    .hero {
+      margin-top: 0.5rem;
+      background: #E8F5E9;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 1.6rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-text h1 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: clamp(2rem, 3.4vw, 2.5rem);
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-text p.lead {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin-bottom: 1.1rem;
+      max-width: 460px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: #FFFFFF;
+      box-shadow: 0 8px 18px rgba(14,138,61,0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(14,138,61,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid rgba(14,138,61,0.4);
+    }
+
+    .btn-outline:hover {
+      background: rgba(14,138,61,0.06);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #C8E6C9;
+      position: relative;
+    }
+
+    .hero-image img {
+      height: 230px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--forest);
+    }
+
+    /* Blocks */
+    .block {
+      margin-top: 2.4rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.5rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .block + .block {
+      margin-top: 1.4rem;
+    }
+
+    .block h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: var(--purple);
+    }
+
+    .block p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .block-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      margin-top: 0.9rem;
+      align-items: center;
+    }
+
+    .block-columns img {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .pill-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 0.9rem 0.9rem 0.85rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .pill h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest);
+    }
+
+    .pill:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border-color: rgba(14,138,61,0.4);
+    }
+
+    .two-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.9rem;
+    }
+
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 1rem 0.9rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest);
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.15rem;
+    }
+
+    .card li { margin-bottom: 0.28rem; }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border-color: rgba(14,138,61,0.4);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #FAFAFA;
+      color: var(--text-muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.3rem;
+      margin-top: 0.9rem;
+      align-items: center;
+    }
+
+    .project-card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #FFFFFF;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project-card img {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-card-body {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .project-card-body h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--purple);
+      margin-top: 0.4rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border-color: rgba(14,138,61,0.4);
+    }
+
+    .bullet-list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.7rem;
+      padding-left: 1.15rem;
+    }
+
+    .bullet-list li { margin-bottom: 0.3rem; }
+
+    .block-footer {
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .block-footer span {
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .final-block {
+      margin-top: 1.6rem;
+      text-align: center;
+    }
+
+    .final-block h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--forest);
+    }
+
+    .final-block p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #9E9E9E;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      header {
+        padding-top: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 1.5rem;
+        top: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.show { display: flex; }
+
+      .nav-toggle { display: block; }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-image img { height: 200px; }
+
+      .block-columns,
+      .pill-row,
+      .two-cards,
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="pafoi-logo.png" alt="PaFoI logo" />
+        </div>
+        <div class="brand-name">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="join.html">Join</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="cta">Say hello</a>
+      </nav>
+    </header>
+
+    <!-- Hero block -->
+    <section class="hero reveal">
+      <div class="hero-text">
+        <h1>Grow ideas like a small forest.</h1>
+        <p class="lead">
+          PaFoI is a friendly space for people and organisations to explore ideas they care about,
+          and see which ones could become real projects, programmes, or ventures.
+        </p>
+        <div class="hero-buttons">
+          <a href="join.html" class="btn btn-primary">Get support for a project</a>
+          <a href="what-we-do.html" class="btn btn-outline">See what happens inside</a>
+        </div>
+        <p class="hero-note">
+          No perfect pitch needed. Bring a question, a sketch, or an idea that won’t leave you alone.
+        </p>
+      </div>
+      <div class="hero-image">
+        <img src="hero.jpg" alt="People collaborating with sticky notes" />
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Ideas → Projects → Hubs → Forest
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 1: Ideas as seeds (teaser) -->
+    <section class="block reveal">
+      <h2>Ideas are treated like seeds.</h2>
+      <div class="block-columns">
+        <div>
+          <p>
+            Many ideas are dismissed as “unrealistic” before they have a chance to breathe.
+            PaFoI exists for those ideas — and for the people who quietly care about them.
+          </p>
+          <p>
+            We make space to look again: to see ideas as seeds that might grow,
+            given time, attention, and the right soil in communities and organisations.
+          </p>
+          <p>
+            Not every seed becomes a tree. That’s okay. What matters is tending the forest:
+            learning, trying, and noticing what begins to take root.
+          </p>
+          <p style="margin-top:0.5rem;font-size:0.86rem;">
+            Learn more on the <a href="about.html">About page</a>.
+          </p>
+        </div>
+        <div>
+          <img src="seed.jpg" alt="Small plant growing in a forest" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 2: What we do (3 pillars preview) -->
+    <section class="block reveal">
+      <h2>What happens inside PaFoI.</h2>
+      <p>
+        A few simple patterns, held with care. Nothing too fancy — just clear spaces to listen, think, and build together.
+      </p>
+      <div class="pill-row">
+        <div class="pill">
+          <h3>Listen</h3>
+          <p>Gentle dialogues and story circles where people share what is real in their places and work.</p>
+        </div>
+        <div class="pill">
+          <h3>Co‑create</h3>
+          <p>Labs and sprints that turn scattered thoughts into shared sketches and ideas on the wall.</p>
+        </div>
+        <div class="pill">
+          <h3>Tend</h3>
+          <p>Light follow‑through: checking back in, making introductions, and exploring homes for ideas.</p>
+        </div>
+      </div>
+      <p style="margin-top:0.6rem;font-size:0.86rem;">
+        See more formats and examples on <a href="what-we-do.html">What we do</a>.
+      </p>
+    </section>
+
+    <!-- Block 3: Who it's for (preview) -->
+    <section class="block reveal">
+      <h2>Who this is for.</h2>
+      <p>
+        PaFoI is for people who like circles more than stages, and for organisations who want to work with communities, not just talk about them.
+      </p>
+      <div class="two-cards">
+        <div class="card">
+          <h3>Individuals</h3>
+          <ul>
+            <li>Community organisers, practitioners, and creatives.</li>
+            <li>People holding questions or half‑formed ideas.</li>
+            <li>Those who enjoy learning and making with others.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Organisations</h3>
+          <ul>
+            <li>Community groups, NGOs, and public agencies.</li>
+            <li>Enterprises exploring themes with communities, not just markets.</li>
+            <li>Ecosystem builders and funders seeking grounded, co‑created ideas.</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:0.6rem;font-size:0.86rem;">
+        Find ways to step in on the <a href="join.html">Join page</a>.
+      </p>
+    </section>
+
+    <!-- Block 4: Projects -->
+    <section class="block reveal">
+      <h2>Projects grown from PaFoI.</h2>
+      <div class="project-grid">
+        <div>
+          <p>
+            Some ideas stay as notes in a document. Others grow into projects, hubs, or ventures
+            with their own names and websites — often living on their own *.pafoi.org branches.
+          </p>
+          <p style="margin-top:0.5rem;font-size:0.86rem;">
+            Explore more examples on the <a href="projects.html">Projects page</a>.
+          </p>
+        </div>
+        <div class="project-card">
+          <img src="community.jpg" alt="Community gathering in a hall" />
+          <div class="project-card-body">
+            <h3>CDD–TSD Hub</h3>
+            <p>
+              A hub that emerged from early PaFoI explorations around community development and entrepreneurship —
+              now a place in its own right.
+            </p>
+            <a class="project-link" href="https://cdd-tsd.pafoi.org" target="_blank" rel="noopener noreferrer">
+              Visit project &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final block -->
+    <section class="final-block reveal">
+      <h2>Have a seed of an idea?</h2>
+      <p>
+        It doesn’t need a deck or a budget. If it matters to you and to the people around you,
+        it’s worth a conversation.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Say hello</a>
+    </section>
+
+    <!-- Contact teaser -->
+    <section class="contact reveal">
+      <p>
+        Ready to talk more? You can email us or use a simple contact page if you prefer.
+      </p>
+      <p style="margin-top:0.4rem;">
+        Email: <a href="mailto:hello@pafoi.org">hello@pafoi.org</a> &middot;
+        Or visit the <a href="contact.html">Contact page</a>.
+      </p>
+      <footer>
+        &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
