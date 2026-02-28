@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plant a Forest of Ideas (PaFoI)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plant a Forest of Ideas (PaFoI) is a movement and ecosystem-building platform where people, communities, and organisations explore challenges and grow ideas into meaningful projects, initiatives, and ventures." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest-green: #1F7A3B;
+      --forest-green-dark: #16552A;
+      --plum: #6A1B6A;
+      --brown: #8D5A2D;
+      --orange: #FF8A00;
+      --yellow: #FFC400;
+      --red: #F44336;
+      --blue: #03A9F4;
+      --bg: #FAF7F2;
+      --bg-light: #FFFFFF;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --border-light: #E0E0E0;
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --radius: 12px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--forest-green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--bg-light);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .brand-text {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.2rem;
+      color: var(--forest-green);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .nav-links a.nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--forest-green);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      padding-top: 1.5rem;
+    }
+
+    .hero-text h1 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+      color: var(--forest-green);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--forest-green);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--plum);
+      color: var(--plum);
+    }
+
+    .btn-secondary:hover {
+      background: #F3E5F5;
+    }
+
+    .hero-subnote {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image-inner {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 2px solid rgba(31, 122, 59, 0.15);
+    }
+
+    .hero-chip {
+      position: absolute;
+      top: 10%;
+      right: -5%;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 180px;
+    }
+
+    .hero-chip span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.4rem;
+      background: var(--orange);
+    }
+
+    .section-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.6rem;
+      color: var(--plum);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: var(--forest-green);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .card ul {
+      margin-top: 0.4rem;
+      padding-left: 1rem;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.82rem;
+      background: #E8F5E9;
+      color: var(--forest-green);
+      border: 1px solid rgba(31,122,59,0.2);
+    }
+
+    .tag.alt1 {
+      background: #FFF3E0;
+      color: var(--orange);
+      border-color: rgba(255,138,0,0.3);
+    }
+
+    .tag.alt2 {
+      background: #FFF9C4;
+      color: var(--yellow);
+      border-color: rgba(255,196,0,0.4);
+    }
+
+    .tag.alt3 {
+      background: #E3F2FD;
+      color: var(--blue);
+      border-color: rgba(3,169,244,0.3);
+    }
+
+    .section-band {
+      background: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .split-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .panel {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .panel h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: var(--forest-green);
+    }
+
+    .panel p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: #FFFFFF;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .project-card img {
+      height: 160px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-card-body {
+      padding: 1rem 1.1rem 1.1rem;
+    }
+
+    .project-card-body h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest-green);
+    }
+
+    .project-card-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--plum);
+    }
+
+    .principles-list {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+
+    .principles-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-strip {
+      background: linear-gradient(120deg, rgba(31,122,59,0.12), rgba(106,27,106,0.07));
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .cta-strip h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.4rem;
+      color: var(--forest-green);
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-strip p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .cta-strip-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-light);
+      background: #FFFFFF;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      max-width: 360px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .footer-left strong {
+      color: var(--forest-green);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999999;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero,
+      .two-column,
+      .card-grid-3,
+      .card-grid-2,
+      .split-panel,
+      .projects-grid,
+      .cta-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 56px;
+        right: 0;
+        left: 0;
+        background: #FFFFFF;
+        flex-direction: column;
+        padding: 0.75rem 1.25rem 1rem;
+        border-bottom: 1px solid var(--border-light);
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links a.nav-cta {
+        align-self: flex-start;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .cta-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-strip-buttons {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <img src="pafoi-logo.png" alt="Plant a Forest of Ideas logo" />
+        <div class="brand-text">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#what-we-do">What we do</a>
+        <a href="#who-for">Who it's for</a>
+        <a href="#projects">Projects</a>
+        <a href="#join">Join</a>
+        <a href="#support">Get support</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <h1>Plant a Forest of Ideas</h1>
+        <p>
+          A movement and ecosystem‑building platform where people, communities,
+          and organisations explore challenges and grow ideas into meaningful
+          projects, initiatives, and ventures.
+        </p>
+        <div class="hero-buttons">
+          <a href="#support" class="btn btn-primary">Get support for your project</a>
+          <a href="#join" class="btn btn-secondary">Join a co‑creation session</a>
+        </div>
+        <p class="hero-subnote">
+          Some ideas seem unrealistic or idealistic at first. Here, we treat them as seeds.
+        </p>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-inner">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="People collaborating around a table" />
+        </div>
+        <div class="hero-chip">
+          <span></span>
+          Co‑creating with communities, practitioners, and partners across regions.
+        </div>
+      </div>
+    </section>
+
+    <!-- Ideas as seeds -->
+    <section id="about">
+      <div class="two-column">
+        <div>
+          <div class="section-header">
+            <h2>Ideas are like seeds</h2>
+          </div>
+          <p>
+            We are often quick to judge or dismiss ideas—our own and others’.
+            We call them “too idealistic”, “too ambitious”, or “not realistic enough”.
+            Plant a Forest of Ideas (PaFoI) exists to create a different kind of space.
+            A space where ideas are treated as seeds: small, fragile, but full of potential.
+          </p>
+          <p>
+            With time, care, and the right conditions, a seed can become a strong tree.
+            The same is true for ideas. Not every seed will grow, and that’s okay.
+            What matters is sowing, experimenting, and learning together until something takes root.
+          </p>
+          <a href="#support" class="btn btn-secondary" style="margin-top:0.9rem;">Share an idea</a>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1465406325902-450994-?auto=format&fit=crop&w=900&q=80" alt="Seedlings growing in soil" />
+        </div>
+      </div>
+    </section>
+
+    <!-- What we do -->
+    <section id="what-we-do">
+      <div class="section-header">
+        <h2>What we do</h2>
+        <p>PaFoI helps people move from talking about change to trying things together.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="card">
+          <h3>Inspire</h3>
+          <p>
+            Talks, conversations, and storytelling sessions that spark curiosity and
+            invite people to see their ideas and realities in new ways.
+          </p>
+          <ul>
+            <li>Public talks and dialogues</li>
+            <li>Story circles and reflection spaces</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Co‑create</h3>
+          <p>
+            Co‑creation spaces where people explore challenges together and shape
+            ideas into clearer concepts and opportunities.
+          </p>
+          <ul>
+            <li>Co‑creation labs and workshops</li>
+            <li>Foresight sprints and thematic explorations</li>
+            <li>Venture discovery tracks</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Support</h3>
+          <p>
+            Gentle structures and connections to help promising ideas find the
+            conditions they need to grow.
+          </p>
+          <ul>
+            <li>Clarifying and strengthening concepts</li>
+            <li>Connecting people and organisations</li>
+            <li>Exploring pathways into programmes, partnerships, or ventures</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section id="who-for">
+      <div class="section-header">
+        <h2>Who PaFoI is for</h2>
+      </div>
+      <div class="card-grid-2">
+        <div class="card">
+          <h3>For individuals</h3>
+          <p>
+            PaFoI is for people who:
+          </p>
+          <ul>
+            <li>Have ideas but don’t yet know where to start</li>
+            <li>Want to contribute to themes they care about</li>
+            <li>Enjoy learning with others and building together</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>For organisations</h3>
+          <p>
+            PaFoI is for organisations that:
+          </p>
+          <ul>
+            <li>Work with communities and want to listen and co‑create</li>
+            <li>Have challenges they want to explore collaboratively</li>
+            <li>Support experimentation and ecosystem‑building</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes and places -->
+    <section>
+      <div class="section-band">
+        <div class="section-header">
+          <h2>Themes and places we explore</h2>
+          <p>
+            PaFoI works through thematic “seasons” and place‑based collaborations.
+            Sessions run online and in‑person, often co‑hosted with local partners.
+          </p>
+        </div>
+        <div class="tag-row" style="margin-bottom:0.75rem;">
+          <span class="tag">Cities &amp; communities</span>
+          <span class="tag alt1">Enterprise &amp; livelihoods</span>
+          <span class="tag alt2">Food &amp; agriculture</span>
+          <span class="tag alt3">Education &amp; learning</span>
+          <span class="tag">Health &amp; wellbeing</span>
+        </div>
+        <p style="font-size:0.9rem;color:var(--text-muted);">
+          Our initial focus is on Southeast Asia and neighbouring regions, while welcoming
+          participation and ideas from elsewhere.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects grown from PaFoI -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>Projects grown from PaFoI</h2>
+        <p>
+          Some ideas that began in PaFoI spaces have grown into their own projects and hubs.
+          Here are a few examples.
+        </p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="Community hub" />
+          <div class="project-card-body">
+            <h3>CDD–TSD Hub</h3>
+            <p>
+              A hub that emerged from early PaFoI work around community development and
+              entrepreneurship, now hosting its own programmes and collaborations.
+            </p>
+            <a class="project-link" href="https://cdd-tsd.pafoi.org" target="_blank" rel="noopener noreferrer">
+              Visit project &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1522202195461-5a3a9e63d3c5?auto=format&fit=crop&w=900&q=80" alt="People working together at a table" />
+          <div class="project-card-body">
+            <h3>Future project</h3>
+            <p>
+              As more initiatives grow out of PaFoI activities, they will appear here
+              as part of the forest of projects.
+            </p>
+            <span style="font-size:0.86rem;color:var(--text-muted);font-style:italic;">
+              More projects coming soon.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join and Get support -->
+    <section id="join">
+      <div class="section-header">
+        <h2>Join &amp; get support</h2>
+        <p>There are different ways to be part of PaFoI, as an individual or an organisation.</p>
+      </div>
+      <div class="split-panel">
+        <div class="panel">
+          <h3>Join a session</h3>
+          <p>
+            Start by listening, learning, and co‑creating in a PaFoI dialogue, lab, or sprint.
+          </p>
+          <p style="font-size:0.9rem;color:var(--text-muted);">
+            Upcoming sessions will be listed here or shared via our mailing list.
+          </p>
+          <a href="#contact" class="btn btn-primary">Ask about upcoming sessions</a>
+        </div>
+        <div class="panel" id="support">
+          <h3>Get support for your community or project</h3>
+          <p>
+            If you are working with a community, exploring a local initiative, or sitting with
+            an idea that you can’t quite name yet, PaFoI may be able to help.
+          </p>
+          <p style="font-size:0.9rem;color:var(--text-muted);">
+            We can help you clarify your idea, design or join a co‑creation process, and
+            explore connections to potential collaborators or hosts.
+          </p>
+          <a href="#contact" class="btn btn-secondary">Request support</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust and participation -->
+    <section>
+      <div class="section-header">
+        <h2>How we treat ideas and participation</h2>
+        <p>Co‑creation only works when people feel safe to share.</p>
+      </div>
+      <ul class="principles-list">
+        <li><strong>You keep what you already have.</strong> Your existing work, tools, and intellectual property remain yours.</li>
+        <li><strong>Shared session outputs.</strong> High‑level insights and frameworks from sessions may be shared (with attribution) so others can learn from them.</li>
+        <li><strong>Growing ideas responsibly.</strong> When an idea looks like it could become a project or venture, we agree a time‑bound period to explore it together and decide how to move forward.</li>
+        <li><strong>Respect and care.</strong> People and communities come before ideas. We pay attention to context, consent, and boundaries.</li>
+      </ul>
+      <p style="margin-top:0.7rem;font-size:0.9rem;">
+        A fuller version of our participation principles and IP approach will be published soon.
+      </p>
+    </section>
+
+    <!-- Final CTA -->
+    <section>
+      <div class="cta-strip">
+        <div>
+          <h2>Ready to plant an idea?</h2>
+          <p>
+            Whether you hold a question, a half‑formed idea, or an active project, you are
+            welcome in Plant a Forest of Ideas. Start by joining a session, requesting
+            support, or simply saying hello.
+          </p>
+        </div>
+        <div class="cta-strip-buttons">
+          <a href="#support" class="btn btn-primary">Get support</a>
+          <a href="#contact" class="btn btn-secondary">Contact the PaFoI team</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p>
+          To learn more, explore a collaboration, or share an idea, reach out to us.
+        </p>
+      </div>
+      <div class="two-column">
+        <div>
+          <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:0.4rem;">
+            You can email us or use a simple form on this page (if you add one later).
+            For now, feel free to start with a short note about who you are and what
+            you’re exploring.
+          </p>
+          <p style="font-size:0.95rem;">
+            <strong>Email:</strong> <a href="mailto:hello@pafoi.org">hello@pafoi.org</a>
+          </p>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="People connecting and smiling" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>Plant a Forest of Ideas (PaFoI)</strong><br />
+        A co‑creation platform for nurturing ideas like seeds and helping them
+        find the conditions they need to grow into projects, initiatives, and ventures.
+        <br /><br />
+        Supported by collaborators including SCII and Think.Shift.Design.
+      </div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#about">About</a>
+        <a href="#what-we-do">What we do</a>
+        <a href="#projects">Projects</a>
+        <a href="#join">Join</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
