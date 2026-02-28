@@ -43,7 +43,7 @@
       padding: 0 1.5rem 3rem;
     }
 
-    /* Header (same as index) */
+    /* Header */
     header {
       display: flex;
       align-items: center;
@@ -226,7 +226,6 @@
       color: #9E9E9E;
     }
 
-    /* Simple reveal */
     .reveal {
       opacity: 0;
       transform: translateY(16px);
@@ -247,3 +246,166 @@
         display: none;
         position: absolute;
         right: 1.5rem;
+        top: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.show { display: flex; }
+
+      .nav-toggle { display: block; }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pill-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="pafoi-logo.png" alt="PaFoI logo" />
+        </div>
+        <div class="brand-name">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="join.html">Join</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="cta">Say hello</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reveal">
+        <h1 class="page-title">About Plant a Forest of Ideas.</h1>
+        <p class="page-intro">
+          PaFoI is a gentle co‑creation space for people and organisations who want to explore real questions together
+          and see which ideas might grow into projects, hubs, or ventures.
+        </p>
+      </section>
+
+      <section class="block two-col reveal" style="margin-top:1.8rem;">
+        <div>
+          <h2>Why PaFoI exists.</h2>
+          <p>
+            Many conversations about change stop at inspiration. People leave with full notebooks
+            but not always with shared, practical next steps. PaFoI was created to bridge that gap.
+          </p>
+          <ul class="bullet-list">
+            <li>Create calm spaces where different voices can meet as equals.</li>
+            <li>Turn scattered insights into shared maps, sketches, and ideas.</li>
+            <li>Help promising ideas find homes in communities, programmes, or ventures.</li>
+            <li>Strengthen ecosystems by connecting people, not just projects.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="seed.jpg" alt="Small plant growing in a forest" />
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>How PaFoI works in practice.</h2>
+        <p>
+          PaFoI is not a single workshop or event. It is a way of moving: listening together, making together,
+          and then tending what appears. Each collaboration is shaped with the people and places involved.
+        </p>
+        <div class="pill-row">
+          <div class="pill">
+            <h3>Shared stewardship</h3>
+            <p>
+              Ideas, relationships, and knowledge are treated as shared responsibilities. No single actor “owns” the whole forest.
+            </p>
+          </div>
+          <div class="pill">
+            <h3>Respect for context</h3>
+            <p>
+              We start from real places, communities, and histories — not just abstract decks or models.
+            </p>
+          </div>
+          <div class="pill">
+            <h3>From insight to action</h3>
+            <p>
+              We look for small, concrete next steps instead of only collecting inspiration or producing reports.
+            </p>
+          </div>
+          <div class="pill">
+            <h3>Learning in the open</h3>
+            <p>
+              Where it is safe to do so, we share patterns and tools so others can adapt them in their own contexts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <h2>Who holds PaFoI.</h2>
+        <p>
+          PaFoI draws on years of ecosystem‑building, research, and venture‑building work from different practitioners and organisations.
+          In this phase, it is supported by collaborators such as SCII and Think.Shift.Design, who contribute experience, networks, and infrastructure.
+        </p>
+        <p style="margin-top:0.6rem;">
+          PaFoI itself is held as a neutral shared space. It does not exist to promote any single organisation,
+          but to be a forest clearing where many actors can plant and grow ideas together.
+        </p>
+      </section>
+
+      <div class="back-link reveal">
+        <a href="index.html">&larr; Back to home</a>
+      </div>
+
+      <section class="contact reveal">
+        <p>
+          If you’d like to explore whether PaFoI is a good fit for your question, community, or organisation,
+          you can write to us with a short note about who you are and what you’re holding.
+        </p>
+        <p style="margin-top:0.4rem;">
+          Email: <a href="mailto:hello@pafoi.org">hello@pafoi.org</a>
+        </p>
+        <footer>
+          &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
