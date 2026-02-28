@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Join · Plant a Forest of Ideas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="See how to join Plant a Forest of Ideas (PaFoI) as an individual or organisation, and how to get support for your ideas or projects." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #0E8A3D;
+      --forest-dark: #0A6B30;
+      --purple: #7B1FA2;
+      --bg: #FFFDF7;
+      --card: #FFFFFF;
+      --text-main: #333333;
+      --text-muted: #757575;
+      --border: #E0E0E0;
+      --max-width: 1040px;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at top left, #F3FAF5 0, #FFFDF7 55%, #F9FAFB 100%);
+      color: var(--text-main);
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--forest); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 0 0.8rem;
+      position: sticky;
+      top: 0;
+      background: rgba(255,253,247,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #FFF;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+      color: var(--forest);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a { color: var(--text-muted); }
+
+    .nav-links a.cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(14,138,61,0.35);
+      color: var(--forest);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a.cta:hover {
+      background: rgba(14,138,61,0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #444;
+      margin: 4px 0;
+      border-radius: 999px;
+    }
+
+    /* Page layout */
+    main {
+      padding-top: 1.4rem;
+    }
+
+    .page-title {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.7rem;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-intro {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .block {
+      margin-top: 2rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.5rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .block h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--purple);
+    }
+
+    .block p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .block + .block {
+      margin-top: 1.4rem;
+    }
+
+    .two-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 1rem 0.9rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest);
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.15rem;
+    }
+
+    .card li { margin-bottom: 0.28rem; }
+
+    .list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      padding-left: 1.15rem;
+    }
+
+    .list li { margin-bottom: 0.3rem; }
+
+    .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-row {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: #FFFFFF;
+      box-shadow: 0 8px 18px rgba(14,138,61,0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(14,138,61,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid rgba(14,138,61,0.4);
+    }
+
+    .btn-outline:hover {
+      background: rgba(14,138,61,0.06);
+      transform: translateY(-1px);
+    }
+
+    .back-link {
+      margin-top: 1.8rem;
+      font-size: 0.88rem;
+    }
+
+    .contact {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #9E9E9E;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding-top: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 1.5rem;
+        top: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.show { display: flex; }
+
+      .nav-toggle { display: block; }
+
+      .two-cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="pafoi-logo.png" alt="PaFoI logo" />
+        </div>
+        <div class="brand-name">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="join.html">Join</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="cta">Say hello</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reveal">
+        <h1 class="page-title">Join and participate.</h1>
+        <p class="page-intro">
+          You can step into PaFoI as an individual, a small group, or as an organisation holding a challenge.
+          You don’t need a finished idea — curiosity is enough.
+        </p>
+      </section>
+
+      <!-- Block: Individuals & organisations -->
+      <section class="block reveal" style="margin-top:1.8rem;">
+        <div class="label">Roles</div>
+        <h2>How people join PaFoI.</h2>
+        <div class="two-cards">
+          <div class="card">
+            <h3>Individuals</h3>
+            <ul>
+              <li><strong>Explorer.</strong> Join dialogues and story circles to listen, learn, and connect.</li>
+              <li><strong>Contributor.</strong> Take part in labs and sprints, sharing your experience and ideas.</li>
+              <li><strong>Builder.</strong> Commit some time to help grow a project or theme that resonates with you.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Organisations</h3>
+            <ul>
+              <li><strong>Challenge owner.</strong> Bring a question, issue, or opportunity to explore with others.</li>
+              <li><strong>Ecosystem partner.</strong> Co‑host sessions, invite your communities, or hold a theme over time.</li>
+              <li><strong>Implementation partner.</strong> Help steward and implement ideas that emerge from PaFoI.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Block: Ways to join -->
+      <section class="block reveal">
+        <div class="label">Ways to join</div>
+        <h2>Simple ways to start.</h2>
+        <p>
+          Many people begin with a single conversation or session. From there, we see together what feels alive and what next step makes sense.
+        </p>
+        <ul class="list">
+          <li><strong>Join an open session.</strong> Take part in a dialogue, lab, or sprint hosted with our partners.</li>
+          <li><strong>Invite PaFoI into your context.</strong> Co‑design a small process around your community or theme.</li>
+          <li><strong>Bring a project in progress.</strong> Use PaFoI as a space to reflect, reframe, and reconnect.</li>
+        </ul>
+        <div class="cta-row">
+          <a href="contact.html" class="btn btn-primary">Ask about upcoming sessions</a>
+          <a href="contact.html" class="btn btn-outline">Explore a collaboration</a>
+        </div>
+      </section>
+
+      <!-- Block: Getting support -->
+      <section class="block reveal">
+        <div class="label">Support</div>
+        <h2>Getting support for your project.</h2>
+        <p>
+          If you are working with a community or initiative and want a co‑creation space around it,
+          PaFoI might be able to help. We start with a short conversation to understand context.
+        </p>
+        <ul class="list">
+          <li>What is the question or issue you’re sitting with?</li>
+          <li>Who is already involved or affected?</li>
+          <li>What has already been tried, and what feels stuck?</li>
+        </ul>
+        <p style="margin-top:0.6rem;">
+          From there, we can suggest a light‑touch process — sometimes one session, sometimes a short series — and explore who else might need to be in the room.
+        </p>
+        <div class="cta-row">
+          <a href="contact.html" class="btn btn-primary">Share what you’re exploring</a>
+        </div>
+      </section>
+
+      <!-- Block: Participation principles short -->
+      <section class="block reveal">
+        <div class="label">Principles</div>
+        <h2>How we hold participation.</h2>
+        <p>
+          Joining PaFoI means joining a shared practice of care. A few simple commitments guide how we work together.
+        </p>
+        <ul class="list">
+          <li><strong>Care for time and energy.</strong> We try to be clear about what sessions are for and what they ask of people.</li>
+          <li><strong>Respect for stories.</strong> Personal stories are treated with care; people decide what can travel and what stays in the room.</li>
+          <li><strong>Clear expectations.</strong> We are honest about what PaFoI can and cannot offer at any given moment.</li>
+          <li><strong>Learning together.</strong> We invite feedback and reflection after sessions so the forest can keep evolving.</li>
+        </ul>
+      </section>
+
+      <div class="back-link reveal">
+        <a href="index.html">&larr; Back to home</a>
+      </div>
+
+      <section class="contact reveal">
+        <p>
+          If you’re unsure how you fit into all of this, that’s okay. A short email or call
+          is often the easiest way to figure out what a first step could look like.
+        </p>
+        <p style="margin-top:0.4rem;">
+          Email: <a href="mailto:hello@pafoi.org">hello@pafoi.org</a>
+        </p>
+        <footer>
+          &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
