@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects · Plant a Forest of Ideas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Projects and hubs that have grown out of Plant a Forest of Ideas (PaFoI) sessions, labs, and journeys." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #0E8A3D;
+      --forest-dark: #0A6B30;
+      --purple: #7B1FA2;
+      --bg: #FFFDF7;
+      --card: #FFFFFF;
+      --text-main: #333333;
+      --text-muted: #757575;
+      --border: #E0E0E0;
+      --max-width: 1040px;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at top left, #F3FAF5 0, #FFFDF7 55%, #F9FAFB 100%);
+      color: var(--text-main);
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--forest); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 0 0.8rem;
+      position: sticky;
+      top: 0;
+      background: rgba(255,253,247,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #FFF;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+      color: var(--forest);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a { color: var(--text-muted); }
+
+    .nav-links a.cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(14,138,61,0.35);
+      color: var(--forest);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a.cta:hover {
+      background: rgba(14,138,61,0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #444;
+      margin: 4px 0;
+      border-radius: 999px;
+    }
+
+    /* Page layout */
+    main {
+      padding-top: 1.4rem;
+    }
+
+    .page-title {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.7rem;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-intro {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .block {
+      margin-top: 2rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.5rem 1.6rem;
+      border: 1px solid var(--border);
+    }
+
+    .block h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--purple);
+    }
+
+    .block p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .block + .block {
+      margin-top: 1.4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #FFFFFF;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project-card img {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .project-body h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: var(--forest);
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: #9E9E9E;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--purple);
+      margin-top: 0.4rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border-color: rgba(14,138,61,0.4);
+    }
+
+    .note {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .back-link {
+      margin-top: 1.8rem;
+      font-size: 0.88rem;
+    }
+
+    .contact {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #9E9E9E;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding-top: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 1.5rem;
+        top: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.show { display: flex; }
+
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="pafoi-logo.png" alt="PaFoI logo" />
+        </div>
+        <div class="brand-name">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="join.html">Join</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="cta">Say hello</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reveal">
+        <h1 class="page-title">Projects grown from PaFoI.</h1>
+        <p class="page-intro">
+          Some ideas stay as sketches. Others grow into projects, hubs, or ventures that live on
+          as their own spaces — often on separate websites or *.pafoi.org branches.
+        </p>
+      </section>
+
+      <section class="block reveal" style="margin-top:1.8rem;">
+        <h2>Current projects and hubs.</h2>
+        <p>
+          These projects all have some roots in PaFoI sessions, labs, or journeys. Each now has
+          its own identity and rhythm, while staying connected to the wider forest.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <img src="community.jpg" alt="Community gathering in a hall" />
+            <div class="project-body">
+              <h3>CDD–TSD Hub</h3>
+              <div class="project-meta">Community development · Entrepreneurship · Hub</div>
+              <p>
+                A hub that emerged from early PaFoI explorations around community development and
+                entrepreneurship — now a place in its own right, hosting programmes and collaborations.
+              </p>
+              <a class="project-link" href="https://cdd-tsd.pafoi.org" target="_blank" rel="noopener noreferrer">
+                Visit project &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Example placeholder for future projects -->
+          <article class="project-card">
+            <img src="seed.jpg" alt="Close-up of plants and hands" />
+            <div class="project-body">
+              <h3>Future project slot</h3>
+              <div class="project-meta">To be announced</div>
+              <p>
+                As more ideas take root through PaFoI, new projects and hubs will appear here, each
+                with its own story and collaborators.
+              </p>
+              <p style="font-size:0.82rem;color:#9E9E9E;margin-top:0.35rem;">
+                This is a placeholder — you can replace it when a new project is ready to be shared.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <p class="note">
+          Want to explore whether your initiative might grow into a project or hub connected to PaFoI?
+          You can start with a simple conversation via the <a href="contact.html">Contact page</a>.
+        </p>
+      </section>
+
+      <div class="back-link reveal">
+        <a href="index.html">&larr; Back to home</a>
+      </div>
+
+      <section class="contact reveal">
+        <p>
+          We add projects slowly and deliberately. If something feels like it belongs in this forest,
+          we’re happy to think that through with you.
+        </p>
+        <p style="margin-top:0.4rem;">
+          Email: <a href="mailto:hello@pafoi.org">hello@pafoi.org</a>
+        </p>
+        <footer>
+          &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
