@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>What We Do · Plant a Forest of Ideas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="See what actually happens inside Plant a Forest of Ideas (PaFoI): listening, co-creating, and tending ideas with people and organisations." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #0E8A3D;
+      --forest-dark: #0A6B30;
+      --purple: #7B1FA2;
+      --bg: #FFFDF7;
+      --card: #FFFFFF;
+      --text-main: #333333;
+      --text-muted: #757575;
+      --border: #E0E0E0;
+      --max-width: 1040px;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at top left, #F3FAF5 0, #FFFDF7 55%, #F9FAFB 100%);
+      color: var(--text-main);
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--forest); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* Header (same as other pages) */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 0 0.8rem;
+      position: sticky;
+      top: 0;
+      background: rgba(255,253,247,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #FFF;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+      color: var(--forest);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a { color: var(--text-muted); }
+
+    .nav-links a.cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(14,138,61,0.35);
+      color: var(--forest);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a.cta:hover {
+      background: rgba(14,138,61,0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #444;
+      margin: 4px 0;
+      border-radius: 999px;
+    }
+
+    /* Page layout */
+    main {
+      padding-top: 1.4rem;
+    }
+
+    .page-title {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.7rem;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-intro {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .block {
+      margin-top: 2rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.5rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .block h2 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--purple);
+    }
+
+    .block p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .block + .block {
+      margin-top: 1.4rem;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 1rem 0.9rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      font-family: 'Baloo 2', system-ui;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--forest);
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.15rem;
+    }
+
+    .card li { margin-bottom: 0.26rem; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      margin-top: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .two-col img {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .bullet-list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      padding-left: 1.15rem;
+    }
+
+    .bullet-list li { margin-bottom: 0.3rem; }
+
+    .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .back-link {
+      margin-top: 1.8rem;
+      font-size: 0.88rem;
+    }
+
+    .contact {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #9E9E9E;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding-top: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 1.5rem;
+        top: 56px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.show { display: flex; }
+
+      .nav-toggle { display: block; }
+
+      .three-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="pafoi-logo.png" alt="PaFoI logo" />
+        </div>
+        <div class="brand-name">Plant a Forest of Ideas</div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="join.html">Join</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="cta">Say hello</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reveal">
+        <h1 class="page-title">What we do inside PaFoI.</h1>
+        <p class="page-intro">
+          PaFoI is a set of simple, careful practices: listening with others, co‑creating ideas, and
+          tending whatever looks like it might grow into something real.
+        </p>
+      </section>
+
+      <!-- Block: Three main modes -->
+      <section class="block reveal" style="margin-top:1.8rem;">
+        <div class="label">Modes</div>
+        <h2>Three ways we work with ideas.</h2>
+        <p>
+          Most collaborations move through some mix of these three modes. We keep them light,
+          so they can be adapted to different people, places, and partners.
+        </p>
+        <div class="three-col">
+          <div class="card">
+            <h3>Inspire</h3>
+            <p>
+              Quiet talks, story circles, and gentle provocations that help people see their
+              realities and possibilities differently.
+            </p>
+            <ul>
+              <li>Public conversations and fireside chats.</li>
+              <li>Story sharing from practitioners and communities.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Co‑create</h3>
+            <p>
+              Workshops and sprints where people map challenges, sketch ideas, and build shared
+              language around what might be possible.
+            </p>
+            <ul>
+              <li>Co‑creation labs and thematic workshops.</li>
+              <li>Foresight and imagination sprints.</li>
+              <li>Venture discovery tracks.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Support</h3>
+            <p>
+              Gentle follow‑through for ideas that need more time: check‑ins, connections, and
+              pathways into projects, programmes, or ventures.
+            </p>
+            <ul>
+              <li>Clarifying and framing ideas.</li>
+              <li>Introductions to potential collaborators.</li>
+              <li>Exploring possible “homes” for ideas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Block: Example journey -->
+      <section class="block reveal">
+        <div class="label">Example journey</div>
+        <h2>What a PaFoI journey can look like.</h2>
+        <div class="two-col">
+          <div>
+            <p>
+              Each collaboration is different, but many follow a similar arc — from first questions
+              to shared sketches to early‑stage projects.
+            </p>
+            <ol class="bullet-list" style="margin-top:0.6rem;">
+              <li><strong>Starting from a question.</strong> A person or organisation brings a theme or challenge they care about.</li>
+              <li><strong>Listening together.</strong> We host one or more dialogues to surface perspectives, stories, and existing work.</li>
+              <li><strong>Co‑creating options.</strong> A lab or sprint turns insights into maps, ideas, and possible pathways.</li>
+              <li><strong>Tending what appears.</strong> A smaller group explores next steps, potential partners, and light structures for moving.</li>
+              <li><strong>Branching out.</strong> Some ideas grow into their own projects or hubs, sometimes with their own *.pafoi.org space.</li>
+            </ol>
+          </div>
+          <div>
+            <img src="hero.jpg" alt="People in a workshop setting" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Block: Participation & IP (short) -->
+      <section class="block reveal">
+        <div class="label">Participation</div>
+        <h2>How we handle ideas and contributions.</h2>
+        <p>
+          Co‑creation depends on trust. We keep our approach to participation and intellectual
+          contributions simple and transparent.
+        </p>
+        <ul class="bullet-list">
+          <li><strong>You keep what you bring.</strong> Your existing work, tools, and IP remain yours.</li>
+          <li><strong>Shared insights, careful details.</strong> High‑level patterns may be shared (with attribution); sensitive details stay in the circle.</li>
+          <li><strong>Time‑bound exploration.</strong> If an idea looks like it could become a project or venture, we agree a short period to explore it together.</li>
+          <li><strong>People before projects.</strong> We pay attention to capacity, consent, and context. No one is pushed beyond what feels right.</li>
+        </ul>
+        <p style="margin-top:0.6rem;font-size:0.86rem;">
+          A fuller note on participation and IP can be shared with partners and contributors who need the details.
+        </p>
+      </section>
+
+      <div class="back-link reveal">
+        <a href="index.html">&larr; Back to home</a>
+      </div>
+
+      <section class="contact reveal">
+        <p>
+          If you’re curious about designing a PaFoI journey around your theme or community,
+          you can write to us with a short note about what you’re exploring.
+        </p>
+        <p style="margin-top:0.4rem;">
+          Email: <a href="mailto:hello@pafoi.org">hello@pafoi.org</a>
+        </p>
+        <footer>
+          &copy; <span id="year"></span> Plant a Forest of Ideas. All rights reserved.
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
